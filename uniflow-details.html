@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFlow - Smart Campus Operations Hub</title>
+    <!-- Use the existing CSS for base variables and fonts -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--bg-color), transparent);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Header */
+        .hero-header {
+            padding: 8rem 10% 2rem 10%;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(229, 126, 37, 0.15);
+            color: var(--accent-orange);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: var(--text-dark);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0 auto;
+        }
+
+        /* Showcase Image */
+        .showcase-container {
+            padding: 0 10%;
+            margin-bottom: 5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .showcase-image {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            background: var(--card-bg);
+            padding: 10px;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Content Layout */
+        .case-study-content {
+            padding: 0 10% 5rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .main-col h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .main-col p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.8rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+
+        .tech-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .tech-list li::before {
+            content: '✓';
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+
+        .cta-box {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .case-study-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-header {
+                padding: 6rem 5% 2rem 5%;
+            }
+            .showcase-container {
+                padding: 0 5%;
+            }
+            .case-study-content {
+                padding: 0 5% 3rem 5%;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="./index.html" class="back-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Portfolio
+        </a>
+    </div>
+
+    <header class="hero-header">
+        <div class="hero-tag">Featured Project</div>
+        <h1 class="hero-title">UniFlow <br> Smart Campus Hub</h1>
+        <p class="hero-subtitle">A comprehensive, production-inspired web system designed to streamline university campus management for both students and staff.</p>
+    </header>
+
+    <div class="showcase-container">
+        <div class="showcase-image">
+            <img src="./assets/Uniflow_smartCampus.png" alt="UniFlow Smart Campus Platform Dashboard">
+        </div>
+    </div>
+
+    <main class="case-study-content">
+        <div class="main-col">
+            <h2>Overview</h2>
+            <p>UniFlow is designed to solve the problem of fragmented and inefficient campus resource management. It centralizes facility and equipment booking, automated schedule conflict detection, and maintenance incident tracking into a single, cohesive platform.</p>
+            <p>By bringing these critical operations under one roof, UniFlow eliminates double-bookings, speeds up maintenance resolution, and provides a drastically improved experience for the university ecosystem.</p>
+
+            <h2 style="margin-top: 4rem;">Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Automated Booking Management</h4>
+                    <p>Conflict detection system preventing overlapping approved reservations for resources. Built with intricate time-series logic.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Maintenance Ticketing</h4>
+                    <p>Issue-reporting workflow (Open → In Progress → Resolved → Closed) complete with Azure Blob Storage image attachments.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Role-Based Access Control</h4>
+                    <p>Distinct tiers (USER, TECHNICIAN, ADMIN) mapped directly to dynamic UI rendering and robust backend route protection.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Hybrid Authentication</h4>
+                    <p>"Sign in with Google" OAuth 2.0 coupled with traditional email/password registration using JWT & BCrypt.</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 4rem;">Architecture & Engineering</h2>
+            <p><strong>Design Pattern:</strong> The application utilizes a Layered MVC architecture (Controller → Service → Repository → Model) making it highly maintainable and scalable. We utilized ODM via Spring Data MongoDB and DTO patterns to securely transfer data between layers.</p>
+            <p><strong>Technical Complexities:</strong> Managing booking collisions required deep time-series logic in MongoDB. Integrating hybrid security (OAuth2 + traditional JWT) demanded tight coupling with the RBAC system. Implementing Azure Blob Storage native multipart file uploads built a robust pipeline for incident ticketing images.</p>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Tech Stack</h3>
+            <ul class="tech-list">
+                <li>React 19 & Tailwind CSS v4</li>
+                <li>Vite & Framer Motion</li>
+                <li>Java 17 & Spring Boot 3.x</li>
+                <li>MongoDB & Spring Data</li>
+                <li>Spring Security & OAuth 2.0</li>
+                <li>JWT & BCrypt</li>
+                <li>Azure Blob Storage</li>
+                <li>GitHub Actions & CI/CD</li>
+            </ul>
+
+            <div class="cta-box">
+                <a href="#" class="btn-solid" style="width: 100%; justify-content: center;">View Source Code</a>
+            </div>
+        </aside>
+    </main>
+
+</body>
+</html>
