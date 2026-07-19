@@ -285,6 +285,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     padding: 2rem 0 5rem 0;
+    align-items: center;
 }
 
 .services-cards {
