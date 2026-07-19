@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "Personal Portfolio Web App",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
