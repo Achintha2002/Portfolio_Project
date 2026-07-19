@@ -397,11 +397,15 @@
                             class="highlight-orange">CONNECT</span></h2>
                     <p class="contact-subtitle">Have a project in mind or want to collaborate? I'd love to hear from
                         you.</p>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Message" rows="5" required></textarea>
-                        <button type="submit" class="submit-btn">SEND MESSAGE <svg width="16" height="16"
+                    <form action="https://formsubmit.co/jayodyajd3@gmail.com" method="POST" class="contact-form">
+                        <!-- FormSubmit Settings -->
+                        <input type="hidden" name="_subject" value="New Contact Message from Portfolio!">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn btn-solid">SEND MESSAGE <svg width="16" height="16"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
