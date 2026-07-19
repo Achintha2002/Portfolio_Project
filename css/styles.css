@@ -701,7 +701,7 @@ section {
 .contact-form textarea:focus {
     outline: none;
     border-color: #e57e25;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     box-shadow: 0 5px 15px rgba(229, 126, 37, 0.1);
 }
 
