@@ -240,49 +240,69 @@ body {
 .hero-right {
     position: absolute;
     right: 0;
-    top: 25%;
+    top: 20%;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    gap: 8rem; 
-    max-width: 250px;
+    align-items: flex-end;
+    gap: 6rem; 
+    max-width: 280px;
+    text-align: right;
 }
 
-.hero-intro {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    font-weight: 500;
+.modern-quote {
+    position: relative;
+    padding-right: 20px;
+    border-right: 3px solid var(--accent-teal);
 }
 
-.stamp-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    text-align: center;
+.modern-quote p {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.5;
 }
 
-.stamp-circle {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 1px dashed var(--text-light);
+.rotating-badge {
+    position: relative;
+    width: 160px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
 }
 
-.stamp-icon {
+.badge-svg {
+    position: absolute;
     width: 100%;
     height: 100%;
+    animation: spinText 15s linear infinite;
 }
 
-.stamp-text {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    line-height: 1.4;
+.badge-svg text {
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    fill: var(--text-light);
+    font-family: var(--font-body);
+}
+
+.badge-icon {
+    position: absolute;
+    animation: pulseIcon 2s ease-in-out infinite alternate;
+}
+
+@keyframes spinText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseIcon {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
 }
 
 /* =========================================
