@@ -562,6 +562,126 @@ body {
 }
 
 /* =========================================
+   About Section
+   ========================================= */
+.about-section {
+    padding: 6rem 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.highlight-teal {
+    color: var(--accent-teal);
+}
+
+.about-desc {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.about-desc strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.about-skills-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.skill-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.skill-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tags span {
+    background-color: var(--bg-color);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: all 0.3s;
+}
+
+.skill-tags span:hover {
+    background-color: var(--accent-teal);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 122, 113, 0.2);
+}
+
+.edu-timeline {
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(0,0,0,0.08);
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.t-dot {
+    position: absolute;
+    left: -1.9rem;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent-orange);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+}
+
+.timeline-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.timeline-item p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+/* =========================================
    Responsive
    ========================================= */
 @media (max-width: 1200px) {
