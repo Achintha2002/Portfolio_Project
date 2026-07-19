@@ -870,14 +870,6 @@ body {
 /* =========================================
    Responsive
    ========================================= */
-@media (max-width: 900px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
 @media (max-width: 1200px) {
     .hero-editorial {
         flex-direction: column;
@@ -892,13 +884,77 @@ body {
         max-width: 100%;
         gap: 2rem;
     }
-    .experience-block {
-        margin-top: 1rem;
-    }
-    .services-section {
-        grid-template-columns: 1fr;
-    }
     .top-nav {
         padding: 1.5rem 2rem;
+    }
+    .modern-quote {
+        border-right: none;
+        border-bottom: 3px solid var(--accent-teal);
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-grid, .contact-grid, .services-section, .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-section {
+        padding: 3rem 0 2rem 0;
+    }
+    .top-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        order: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .giant-title {
+        font-size: 3rem;
+    }
+    .typewriter-block {
+        font-size: 1.2rem;
+    }
+    .hero-center {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 4/5;
+    }
+    .section-title, .services-content h2, .stat h4 {
+        font-size: 2.5rem;
+    }
+    .nav-links {
+        font-size: 0.8rem;
+    }
+    .stats-row {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .scroll-container {
+        padding: 0 1.5rem;
+    }
+    .hero-editorial {
+        min-height: auto;
+        padding-top: 1rem;
+        margin-bottom: 3rem;
+    }
+    .project-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-outline, .btn-solid {
+        width: 100%;
+    }
+    .contact-card {
+        padding: 1.5rem;
     }
 }
