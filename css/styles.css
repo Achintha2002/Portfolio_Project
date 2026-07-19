@@ -519,6 +519,96 @@ body {
 }
 
 /* =========================================
+   Certificates Section
+   ========================================= */
+.certificates-section {
+    padding: 6rem 0;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.cert-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+}
+
+.cert-icon-wrap {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(43, 122, 113, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent-teal);
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cert-content h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.cert-issuer {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cert-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-top: auto;
+}
+
+.cert-link:hover {
+    color: var(--accent-teal);
+}
+
+/* =========================================
    Contact Section
    ========================================= */
 .contact-section {
@@ -893,10 +983,13 @@ body {
         padding-right: 0;
         padding-bottom: 20px;
     }
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 900px) {
-    .projects-grid, .contact-grid, .services-section, .about-grid {
+    .projects-grid, .contact-grid, .services-section, .about-grid, .certificates-grid {
         grid-template-columns: 1fr;
     }
     .about-section {
