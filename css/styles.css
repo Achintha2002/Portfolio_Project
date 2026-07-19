@@ -344,7 +344,7 @@ section {
 }
 
 .service-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 1.5rem 2rem;
     display: flex;
@@ -944,7 +944,7 @@ section {
 
 .edu-timeline {
     padding-left: 1.5rem;
-    border-left: 2px solid rgba(0,0,0,0.08);
+    border-left: 2px solid var(--card-border);
     margin-left: 1rem;
     display: flex;
     flex-direction: column;
