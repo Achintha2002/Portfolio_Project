@@ -11,6 +11,19 @@
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Outfit', sans-serif;
     --font-serif: 'Playfair Display', serif;
+    
+    --card-bg: #ffffff;
+    --card-border: rgba(0,0,0,0.02);
+    --tag-bg: #f1f5f9;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0f172a;       /* Deep Slate / Navy */
+    --text-dark: #f8fafc;      /* Off-white */
+    --text-light: #94a3b8;     /* Light Slate */
+    --card-bg: #1e293b;        /* Lighter Slate for cards */
+    --card-border: rgba(255,255,255,0.05);
+    --tag-bg: #334155;
 }
 
 * {
@@ -271,7 +284,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #ffffff;
+    background: var(--card-bg);
     box-shadow: 0 15px 40px rgba(0,0,0,0.05);
 }
 
@@ -416,11 +429,11 @@ body {
 }
 
 .project-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid var(--card-border);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
@@ -469,7 +482,7 @@ body {
 }
 
 .project-tags span {
-    background-color: #f1f5f9;
+    background-color: var(--tag-bg);
     color: #475569;
     font-size: 0.8rem;
     font-weight: 700;
@@ -533,11 +546,11 @@ body {
 }
 
 .cert-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 2.5rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid var(--card-border);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
@@ -622,11 +635,11 @@ body {
 }
 
 .contact-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 2.5rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid var(--card-border);
 }
 
 .form-card {
@@ -668,8 +681,8 @@ body {
     width: 100%;
     padding: 1.2rem;
     border-radius: 12px;
-    border: 1px solid transparent;
-    background-color: #f8f9fa;
+    border: 1px solid var(--card-border);
+    background-color: var(--tag-bg);
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-dark);
@@ -881,11 +894,11 @@ body {
 }
 
 .skill-card {
-    background: #ffffff;
+    background: var(--card-bg);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid var(--card-border);
 }
 
 .skill-card h3 {
@@ -904,8 +917,8 @@ body {
 }
 
 .skill-tags span {
-    background-color: var(--bg-color);
-    border: 1px solid rgba(0,0,0,0.05);
+    background-color: var(--tag-bg);
+    border: 1px solid var(--card-border);
     padding: 0.6rem 1.2rem;
     border-radius: 50px;
     font-size: 0.9rem;
@@ -949,6 +962,41 @@ body {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-dark);
+}
+
+.nav-contact .phone {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-border);
+}
+
+.theme-toggle .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: block;
 }
 
 .timeline-item p {
