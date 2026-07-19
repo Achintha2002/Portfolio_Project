@@ -35,8 +35,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    position: relative;
-    z-index: 100;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
 }
 
 .logo {
@@ -166,24 +168,30 @@ body {
     box-shadow: 0 15px 25px rgba(240, 106, 75, 0.4);
 }
 
-.experience-block {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.typewriter-block {
     margin-top: 3rem;
-}
-
-.exp-number {
-    font-size: 4.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.exp-text {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 1.6rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    color: var(--text-dark);
+}
+
+.typewriter-prefix {
+    color: var(--text-light);
+}
+
+.typewriter-text {
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+.typewriter-cursor {
+    color: var(--accent-orange);
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* CENTER IMAGE */
@@ -680,6 +688,43 @@ body {
     0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
     70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
     100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* =========================================
+   Back to Top Button
+   ========================================= */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-orange);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(240, 106, 75, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: #cf701f;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(240, 106, 75, 0.6);
 }
 
 /* =========================================
