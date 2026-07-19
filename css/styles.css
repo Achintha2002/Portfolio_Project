@@ -1109,3 +1109,127 @@ section {
         padding: 1.5rem;
     }
 }
+
+/* =========================================
+   Modal Section
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    border-radius: 20px;
+    position: relative;
+    padding: 3rem 2.5rem;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--card-border);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: var(--accent-orange);
+    background-color: var(--tag-bg);
+}
+
+.modal-body {
+    color: var(--text-dark);
+}
+
+.modal-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--accent-teal);
+    font-family: var(--font-serif);
+    line-height: 1.2;
+}
+
+.modal-section {
+    margin-bottom: 2rem;
+}
+
+.modal-section h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.modal-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.modal-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.modal-list li::before {
+    content: "•";
+    color: var(--accent-orange);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    top: -2px;
+}
+
+.modal-list strong {
+    color: var(--text-dark);
+}
