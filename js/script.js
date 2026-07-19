@@ -121,4 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- ScrollSpy (Active Link Highlighting on Scroll) ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (sections.length > 0 && navLinks.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-150px 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            if(section.getAttribute('id')) {
+                observer.observe(section);
+            }
+        });
+    }
+
 });
