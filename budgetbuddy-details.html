@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetBuddy - Personal Finance App</title>
+    
+    <!-- Sync theme with main portfolio immediately to prevent flashing -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+
+    <!-- Use the existing CSS for base variables and fonts -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Nav */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--bg-color), transparent);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Header Section */
+        .project-header {
+            padding: 8rem 5% 4rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(43, 122, 113, 0.15); /* Teal tint */
+            color: var(--accent-teal);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--text-dark);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .project-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* Tech Stack Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tags span {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .tech-tags span:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto 5rem auto;
+            padding: 0 5%;
+        }
+
+        .content-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .content-section h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--card-border);
+        }
+
+        .content-section p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+        }
+
+        .feature-box h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin: 0 0 1rem 0;
+            font-family: var(--font-heading);
+        }
+
+        .feature-box p {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 5% 6rem 5%;
+        }
+
+        @media (max-width: 768px) {
+            .project-title { font-size: 2.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .content-section p { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-bar">
+        <a href="./index.html#projects" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Portfolio
+        </a>
+    </nav>
+
+    <header class="project-header">
+        <div class="project-tag">Case Study</div>
+        <h1 class="project-title">BudgetBuddy <br> Finance App</h1>
+        <p class="project-subtitle">A comprehensive, full-stack personal finance application designed to help users track expenses, manage budgets, and achieve savings goals seamlessly.</p>
+        
+        <div class="tech-tags">
+            <span>React Native</span>
+            <span>Expo</span>
+            <span>Node.js</span>
+            <span>Express.js</span>
+            <span>MongoDB</span>
+            <span>Groq AI SDK</span>
+            <span>Google Auth</span>
+            <span>JWT</span>
+            <span>PDFKit</span>
+            <span>Azure Blob Storage</span>
+        </div>
+    </header>
+
+    <div class="hero-image-wrapper">
+        <img src="./assets/budgetbuddy_mockup.png" alt="BudgetBuddy Dashboard Interface">
+    </div>
+
+    <section class="content-section" style="margin-top: 2rem;">
+        <h2>Overview</h2>
+        <p>BudgetBuddy solves the problem of scattered financial tracking by providing a unified platform with intelligent predictive insights, real-time alerts, and automated monthly reporting.</p>
+        <p>It goes beyond simple transaction logging, acting as an AI-powered financial assistant that actively helps users understand their spending habits and reach their financial goals faster.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>Smart Budget Management</h3>
+                <p>Enables custom budgets with real-time proactive alerts when spending limits are approached or exceeded.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Predictive Savings Goals</h3>
+                <p>Allows users to create savings targets and utilizes predictive logic to forecast completion timelines based on historical data.</p>
+            </div>
+            <div class="feature-box">
+                <h3>AI-Powered Assistant</h3>
+                <p>An integrated chatbot powered by Groq (LLaMA 3.1) that provides contextual financial advice and insights.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Automated PDF Reporting</h3>
+                <p>Generates custom, downloadable PDF reports with embedded charts comparing monthly financial metrics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Technical Architecture</h2>
+        <p><strong>Client-Server Architecture:</strong> The application uses a decoupled structure where a React Native (Expo) frontend communicates with a robust RESTful Node.js backend. The Node.js backend strictly adheres to the Model-View-Controller (MVC) pattern, ensuring clean separation of concerns.</p>
+        <p><strong>Engineering Complexity:</strong> Generating dynamic PDF reports with embedded visuals (Chart.js + Canvas on a Node server) posed a significant challenge. Additionally, integrating the Groq LLM required constructing highly optimized prompt engineering pipelines to feed user context securely and with ultra-low latency.</p>
+    </section>
+
+    <section class="cta-section">
+        <a href="#" class="btn-solid" style="padding: 1rem 2.5rem; font-size: 1.1rem;">View Source Code</a>
+    </section>
+
+</body>
+</html>
